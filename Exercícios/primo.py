@@ -1,7 +1,7 @@
 def primo(valor):
     if valor > 3 and (valor % 2 == 0 or valor % 3 == 0):
-        return False
+        print('Não é primo!')
     else:
-        return True
+        print('É primo!')
 
 primo(int(input("Teste se é primo: ")))

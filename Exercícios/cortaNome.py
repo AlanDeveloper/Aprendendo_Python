@@ -9,6 +9,6 @@ def corta(name):
         else:
             abrevia += ' ' + name[i][0] + '. '
         i += 1
-    return abrevia
+    print(abrevia)
 
 corta(str(input("Abreviar nome: ")))

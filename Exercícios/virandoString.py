@@ -3,6 +3,6 @@ def inverte(string):
     string = ""
     for i in range(0, len(vet)):
         string += vet[i][::-1] + " "
-    return string
+    print(string)
 
 inverte(str(input("Inverter string: ")))
