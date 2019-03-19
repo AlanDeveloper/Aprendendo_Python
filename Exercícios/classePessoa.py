@@ -21,9 +21,9 @@ class Pessoa:
     def _getTel(self):
         return self._telefone
 
-    nome = property(_getNome, _setNome)
-    dtnascimento = property(_getdtNascimento, _setdtNascimento)
-    telefone = property(_getTel, _setTel)
+    _nome = property(_getNome, _setNome)
+    _dtnascimento = property(_getdtNascimento, _setdtNascimento)
+    _telefone = property(_getTel, _setTel)
 
 obj = Pessoa(input("Informe seu nome: "), input("Informe sua data de nascimento: "), input("Informe seu telefone: "))
 print(obj.__str__())
