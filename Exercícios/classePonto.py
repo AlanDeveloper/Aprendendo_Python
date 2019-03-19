@@ -24,8 +24,8 @@ class Ponto:
         distanciaY = (ponto._getY() - self._y) * (ponto._getY() - self._y)
         return  sqrt(distanciaX + distanciaY)
     
-    x = property(_getX, _setX)
-    y = property(_getY, _setY)
+    _x = property(_getX, _setX)
+    _y = property(_getY, _setY)
 
 ponto1 = Ponto(int(input('Coordenada x: ')), int(input('Coordenada y: ')))
 ponto2 = Ponto(int(input('Coordenada x: ')), int(input('Coordenada y: ')))
