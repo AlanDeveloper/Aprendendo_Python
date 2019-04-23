@@ -1,8 +1,7 @@
-class funcionario():
+class Funcionario():
     def __init__(self, nome, departamento):
         self._nome = nome
         self._departamento = departamento
-        self._codigo
 
     def alterarNome(self, nome):
         self._nome = nome

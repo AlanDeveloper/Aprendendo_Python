@@ -1,11 +1,9 @@
 CREATE TABLE "funcionario" (
     "nome" varchar(100) NOT NULL,
-    "codigo" serial unique,
+    "codigo" serial,
+    "coddepartamento" int,
     CONSTRAINT "funcionarioPK" PRIMARY KEY ("codigo")
 );
-
-
-ALTER TABLE "funcionario" ADD COLUMN "coddepartamento" int
 
 ALTER TABLE  "funcionario" ADD CONSTRAINT "funcionarioFK" FOREIGN KEY  ("coddepartamento")
 	REFERENCES "departamento" ("codigo")
@@ -14,6 +12,8 @@ ALTER TABLE  "funcionario" ADD CONSTRAINT "funcionarioFK" FOREIGN KEY  ("coddepa
 
 
 
-INSERT INTO "departamento" ("nome", "codgerente") VALUES ('Alan', 2);
-INSERT INTO "funcionario" ("nome", "coddepartamento") VALUES ('Alanzinho', 1);
-INSERT INTO "funcionario" ("nome", "coddepartamento") VALUES ('Alanzao', 1);
+INSERT INTO "funcionario" ("nome", "coddepartamento") VALUES ('Alan', 2);
+INSERT INTO "funcionario" ("nome", "coddepartamento") VALUES ('Mauricio', 1);
+
+
+SELECT "f"."nome", "f"."codigo", "d"."nome" FROM "funcionario" AS "f" INNER JOIN "departamento" AS "d" ON "f"."codigo" = "d"."codgerente";
