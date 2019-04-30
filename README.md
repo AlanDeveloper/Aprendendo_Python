@@ -20,4 +20,5 @@ Desativar o ambiente: deactivate
 -- Instalação do Flask
 
 pip install flask
+
 import flask
