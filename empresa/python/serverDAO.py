@@ -11,17 +11,20 @@ class serverDAO():
     def buscarDepartamento(self, codigo):
         conexao = self.conectar()
         cur = conexao.cursor()
+        try:
+            cur.execute("SELECT * FROM departamento WHERE codigo = %s", [codigo])
+            resposta = cur.fetchall()
 
-        cur.execute("SELECT * FROM departamento WHERE codigo = %s", [codigo])
-        resposta = cur.fetchall()
-   
-        qt = Departamento(resposta[0][0])
-        qt.alterarCodigo(resposta[0][1])
-        qt.alterarGerente(self.buscarFuncionario(resposta[0][2]))
+            qt = Departamento(resposta[0][0])
+            qt.alterarCodigo(resposta[0][1])
+            qt.alterarGerente(self.buscarFuncionario(resposta[0][2]))
 
-        cur.close()
-        conexao.close()
-        return qt
+            cur.close()
+            conexao.close()
+            
+            return qt
+        except IndexError:
+            return 'Coloca o código direito'
     def buscarFuncionario(self, codigo):
         conexao = self.conectar()
         cur = conexao.cursor()
@@ -36,6 +39,8 @@ class serverDAO():
             return qt
         except UnboundLocalError:
             return codigo
+        except IndexError:
+            return 'Coloca o código direito'
         
         cur.close()
         conexao.close()
