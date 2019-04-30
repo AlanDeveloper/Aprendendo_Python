@@ -3,6 +3,9 @@ class Funcionario():
         self._nome = nome
         self._departamento = departamento
 
+    def __str__(self):
+        return 'Nome: {}, Código: {}, Departamento: {}'. format(self.obterNome(), self.obterCodigo(), self.obterDepartamento())
+
     def alterarNome(self, nome):
         self._nome = nome
     def alterarCodigo(self, codigo):
