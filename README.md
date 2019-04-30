@@ -11,9 +11,9 @@ Usados:
 
 -- Criação do Ambiente Virtual:
   
-virtualenv --python=/usr/bin/python3 <pasta>
+virtualenv --python=/usr/bin/python3 'pasta'
 
-Ativar o ambiente: source <pasta>/bin/activate
+Ativar o ambiente: source 'pasta'/bin/activate
 
 Desativar o ambiente: deactivate
   
