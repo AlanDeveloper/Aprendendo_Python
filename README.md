@@ -14,6 +14,7 @@ Usados:
 virtualenv --python=/usr/bin/python3 <pasta>
 
 Ativar o ambiente: source <pasta>/bin/activate
+
 Desativar o ambiente: deactivate
   
 -- Instalação do Flask
