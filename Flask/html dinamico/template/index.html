@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Page</title>
+</head>
+<body>
+    <a href="/usuario">Cadastre-se</a>
+    <br>
+    <br>
+    <form>
+        <label>Número: </label>
+        <input type="number" id="cod">
+        <!-- <a href="#" id="search">Cadastre-se</a> -->
+        <input type="submit" id="search" value="Enviar">
+    </form>
+
+    <script>
+        const search = document.querySelector('#search');
+        search.addEventListener('click', (e) => {
+            window.location.href = '/busca/' + document.querySelector('#cod').value;
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
