@@ -11,16 +11,15 @@
     <br>
     <br>
     <form>
-        <label>Número: </label>
+        <label>Código: </label>
         <input type="number" id="cod">
-        <!-- <a href="#" id="search">Cadastre-se</a> -->
-        <input type="submit" id="search" value="Enviar">
+        <input type="submit" id="search" value="Procurar">
     </form>
 
     <script>
         const search = document.querySelector('#search');
         search.addEventListener('click', (e) => {
-            window.location.href = '/busca/' + document.querySelector('#cod').value;
+            window.location.href = '/busca/' + (document.querySelector('#cod').value != '' ? document.querySelector('#cod').value : '00');
             e.preventDefault();
         });
     </script>
