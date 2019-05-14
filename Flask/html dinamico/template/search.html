@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+    
+{% block content %}
+    <h1>{{ obj }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ obj.obterNome() }}</td>
+                <td>{{ obj.obterCodigo() }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+{% endblock %}

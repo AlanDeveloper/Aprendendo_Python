@@ -1,0 +1,58 @@
+<<<<<<< HEAD
+{% extends './base.html' %}
+STATIC_URL = '/static/'
+{% block content %}
+    <a href="/usuario">Cadastre um funcionário</a>
+    <a href="/depto">Cadastre um departamento</a>
+    <br><br>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Page</title>
+</head>
+<body>
+    <a href="/usuario">Cadastre um funcionário</a>
+    <a href="/depto">Cadastre um departamento</a>
+    <br>
+    <br>
+>>>>>>> 6d9e546586af24cf73778705315e89eb9c53f1f7
+    <form>
+        <label>Buscar funcionário: </label>
+        <input type="number" id="cod">
+        <input type="submit" id="search" value="Procurar">
+        <label>Buscar departamento: </label>
+        <input type="number" id="cod1">
+        <input type="submit" id="search1" value="Procurar">
+    </form>
+    <br><br>
+    <button id="listFunc">Listar Funcionários</button>
+    <button id="listDepto">Listar Departamentos</button>
+
+    <script>
+        const search = document.querySelector('#search');
+        search.addEventListener('click', (e) => {
+            window.location.href = '/buscaFunc/' + (document.querySelector('#cod').value != '' ? document.querySelector('#cod').value : '00');
+            e.preventDefault();
+        });
+        const search1 = document.querySelector('#search1');
+        search1.addEventListener('click', (e) => {
+            window.location.href = '/buscaDepto/' + (document.querySelector('#cod1').value != '' ? document.querySelector('#cod1').value : '00');
+            e.preventDefault();
+        });
+
+        const listFunc = document.querySelector('#listFunc');
+        listFunc.addEventListener('click', function (e) {
+            window.location.href = '/listFunc';
+            e.preventDefault();
+        });
+        const listDepto = document.querySelector('#listDepto');
+        listDepto.addEventListener('click', function (e) {
+            window.location.href = '/listDepto';
+            e.preventDefault();
+        });
+    </script>
+{% endblock %}
