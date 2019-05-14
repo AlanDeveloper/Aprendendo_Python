@@ -1,20 +1,14 @@
 #!-*- conding: utf8 -*-
-import psycopg2
+from server import serverDAO
 from func import Funcionario
+import psycopg2
 
-class funcDAO():
-    def conectar(self):
-        banco = "dbname=flask user=postgres password=postgres host=localhost port=5432"
-        
-        return psycopg2.connect(banco)
-
-
+class funcDAO(serverDAO):
     def buscarFuncionario(self, codigo):
-        conexao = self.conectar()
-        cur = conexao.cursor()
+        conexao = super().conectar().cursor()
         try:
-            cur.execute('SELECT * FROM funcionario WHERE codigo = %s', [codigo])
-            resposta = cur.fetchall()
+            conexao.execute('SELECT * FROM funcionario WHERE codigo = %s', [codigo])
+            resposta = conexao.fetchall()
 
             qt = Funcionario(resposta[0][0], resposta[0][2])
             qt.alterarCodigo(resposta[0][1])
@@ -24,23 +18,32 @@ class funcDAO():
             return codigo
         except IndexError:
             return 'Codigo nao encontrado'
-        cur.close()
         conexao.close()
 
+    def buscarFuncionarios(self):
+        conexao = super().conectar().cursor()
+        conexao.execute('SELECT * FROM funcionario')
+        resposta = conexao.fetchall()
+        funcs = []
+
+        for qt in resposta:
+            obj = Funcionario(qt[0], qt[2])
+            obj.alterarCodigo(qt[1])
+            funcs.append(obj)
+
+        return funcs
+        conexao.close()
 
     def inserirFuncionario(self, func):
-        conexao = self.conectar()
-        cur = conexao.cursor()
+        conexao = super().conectar()
 
-        cur.execute("INSERT INTO funcionario (nome, coddepartamento) VALUES (%s, %s)", [func.obterNome(), func.obterDepartamento()])
+        conexao.cursor().execute("INSERT INTO funcionario (nome, coddepartamento) VALUES (%s, %s)", [func.obterNome(), func.obterDepartamento()])
         conexao.commit()
 
-        cur.close()
         conexao.close()
 
-
     def alterarFuncionario(self, func):
-        conexao = self.conectar()
+        conexao = super().conectar()
         cur = conexao.cursor()
 
         cur.execute("UPDATE funcionario SET nome = %s, coddepartamento = %s WHERE codigo = %s", [

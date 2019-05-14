@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Page</title>
-</head>
-<body>
-    <form action="/usuario" method="POST">
+{% extends './base.html' %}
+
+{% block content %}
+    <form action={{ reg }} method="POST">
         <label for="name">Nome: </label>
         <input type="text" name="name">
-        
-        <select name="depto">
-            {% for dep in deptos %}
-            <option value={{dep.obterCodigo()}}>
-                {{dep.obterNome()}}
-            </option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Enviar">
+        {% if register %}
+            <select name="depto">
+                {% for dep in deptos %}
+                <option value={{dep.obterCodigo()}}>
+                    {{dep.obterNome()}}
+                </option>
+                {% endfor %}
+            </select>
+        {% endif %}
+        <input type="submit" value="Cadastrar">
     </form>
-</body>
-</html>
+{% endblock %}
