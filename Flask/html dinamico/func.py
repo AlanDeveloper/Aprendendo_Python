@@ -23,7 +23,7 @@ class Funcionario():
         return self._codigo
 
     def obterDepartamento(self):
-        return self._departamento
+        return self._departamento if self._departamento != None else 'Nenhum registrado'
 
     nome = property(obterNome, alterarNome)
     codigo = property(obterCodigo, alterarCodigo)

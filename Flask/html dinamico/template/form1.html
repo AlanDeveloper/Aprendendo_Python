@@ -7,17 +7,9 @@
     <title>My Page</title>
 </head>
 <body>
-    <form action="/usuario" method="POST">
+    <form action="/depto" method="POST">
         <label for="name">Nome: </label>
         <input type="text" name="name">
-        
-        <select name="depto">
-            {% for dep in deptos %}
-            <option value={{dep.obterCodigo()}}>
-                {{dep.obterNome()}}
-            </option>
-            {% endfor %}
-        </select>
         <input type="submit" value="Cadastrar">
     </form>
 </body>
