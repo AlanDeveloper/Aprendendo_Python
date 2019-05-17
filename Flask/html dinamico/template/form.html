@@ -4,7 +4,6 @@
     <form action={{ reg }} method="POST">
         <label for="name">Nome: </label>
         <input type="text" name="name">
-<<<<<<< HEAD
         {% if register %}
             <select name="depto">
                 {% for dep in deptos %}
@@ -14,16 +13,6 @@
                 {% endfor %}
             </select>
         {% endif %}
-=======
-        
-        <select name="depto">
-            {% for dep in deptos %}
-            <option value={{dep.obterCodigo()}}>
-                {{dep.obterNome()}}
-            </option>
-            {% endfor %}
-        </select>
->>>>>>> 6d9e546586af24cf73778705315e89eb9c53f1f7
         <input type="submit" value="Cadastrar">
     </form>
 {% endblock %}

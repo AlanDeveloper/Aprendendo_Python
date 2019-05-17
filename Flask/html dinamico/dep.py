@@ -6,10 +6,6 @@ class Departamento:
     def __str__(self):
         return 'Nome: {}, Codigo: {}, Gerente: {}'. format(self.obterNome(), self.obterCodigo(), self.obterGerente())
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6d9e546586af24cf73778705315e89eb9c53f1f7
     def alterarNome(self, nome):
         self._nome = nome
     def alterarCodigo(self, codigo):

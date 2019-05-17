@@ -22,7 +22,6 @@ def registerFunc():
         return render_template('view.html', name=obj.obterNome())
     
     deptos = depDAO().buscarDepartamentos()
-<<<<<<< HEAD
     return render_template('form.html', reg='/usuario', deptos = deptos, register=True)
 
 @app.route('/depto', methods = ['GET', 'POST'])
@@ -59,48 +58,8 @@ def listFunc():
 @app.route('/listDepto')
 def listDepto():
     deptos = depDAO().buscarDepartamentos()
-=======
-    return render_template('form.html', deptos = deptos)
-
-@app.route('/depto', methods = ['GET', 'POST'])
-def registerDepto():
-    if request.method =='POST':
-        obj = Departamento(request.form['name'])
-        depDAO().inserirDepartamento(obj)
-
-        return render_template('view1.html', name=obj.obterNome())
-    return render_template('form1.html')
-
-
-# Procurar
-
-@app.route('/buscaFunc/<int:cod>')
-def searchFunc(cod):
-    func = funcDAO().buscarFuncionario(cod)
->>>>>>> 6d9e546586af24cf73778705315e89eb9c53f1f7
 
     return render_template('list.html', objs = deptos)
-
-@app.route('/buscaDepto/<int:cod>')
-def searchDepto(cod):
-    dep = depDAO().buscarDepartamento(cod)
-
-    return render_template('search1.html', obj = dep.__str__())
-
-# Listar
-
-@app.route('/listFunc')
-def listFunc():
-    funcs = funcDAO().buscarFuncionarios()
-
-    return render_template('listFunc.html', funcs = funcs)
-
-@app.route('/listDepto')
-def listDepto():
-    deptos = depDAO().buscarDepartamentos()
-
-    return render_template('listDepto.html', deptos = deptos)
-
 
 def main():
     app.env = 'development'
