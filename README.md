@@ -2,7 +2,7 @@
 
 Usados: 
 
-- Python
+- Python3
 - Psycopg2
 - Ambiente Virtual
 - pgAdmin III
