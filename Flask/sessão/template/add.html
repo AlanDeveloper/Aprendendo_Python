@@ -7,9 +7,10 @@
     <title>My session</title>
 </head>
 <body>
-    <p>Usuario: {{ date['username']}}</p>
-    <p>Senha: {{ date['password']}}</p>
-
-    <a href="/func/exit">Sair</a>
+    <form action="/func/add" method="post">
+        <label for="">Nome: </label>
+        <input type="text" name="name">
+        <input type="submit" value="Enviar">
+    </form>
 </body>
 </html>
